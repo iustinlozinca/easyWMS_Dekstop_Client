@@ -16,7 +16,9 @@ tasks.named('run') {
 }
 java {
 
-    toolchain { languageVersion = JavaLanguageVersion.of(24) }
+    // Use the locally available JDK instead of requesting Java 24,
+    // which may not be installed in all environments.
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
 }
 
 application {
@@ -25,7 +27,9 @@ application {
 }
 
 javafx {
-    version = '24'
+    // Align JavaFX version with the JDK toolchain to avoid missing
+    // dependencies during the build.
+    version = '21'
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
