@@ -15,6 +15,8 @@ public class ProdusComanda extends Produs{
     /// constructor
     public ProdusComanda() {
         super();
+        this.cantitateComandata = 0;
+        this.cantitateScanata = 0;
     }
 
     public ProdusComanda(String ean, String nume, String codIntern, Integer unitate,Integer stoc, Integer cantitateComandata){
