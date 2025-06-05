@@ -11,9 +11,13 @@ import java.util.List;
 
 public class MainApp {
     public static void main(String[] args) {
-        Connection conn = DbUtil.getConnection();
-        if (conn == null) {
-            System.err.println("Nu s-a putut obtine conexiunea");
+        try (Connection conn = DbUtil.getConnection()) {
+            if (conn == null) {
+                System.err.println("Nu s-a putut obtine conexiunea");
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
             return;
         }
 

@@ -8,15 +8,16 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DbUtil {
-    private static Connection connection;
-
     private DbUtil() {
     }
 
+    /**
+     * Opens a new JDBC connection using the parameters from {@code db.properties}.
+     * <p>
+     * Each call creates a fresh {@link Connection} to avoid reusing a potentially
+     * closed one. Callers are responsible for closing the returned connection.
+     */
     public static Connection getConnection() {
-        if (connection != null) {
-            return connection;
-        }
         Properties props = new Properties();
         try (InputStream is = DbUtil.class.getClassLoader().getResourceAsStream("db.properties")) {
             if (is != null) {
@@ -27,10 +28,10 @@ public class DbUtil {
             String user = props.getProperty("username");
             String pass = props.getProperty("password");
             Class.forName(driver);
-            connection = DriverManager.getConnection(url, user, pass);
+            return DriverManager.getConnection(url, user, pass);
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return connection;
     }
 }
