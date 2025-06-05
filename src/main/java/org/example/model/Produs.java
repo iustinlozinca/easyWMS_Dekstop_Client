@@ -2,6 +2,7 @@ package org.example.model;
 
 public class Produs implements Comparable<Produs> {
     /// variabile
+    private Integer id;
     private String ean;
     private String nume;
     private String codIntern;
@@ -14,6 +15,9 @@ public class Produs implements Comparable<Produs> {
 
 
     /// constructor
+    public Produs() {
+    }
+
     public Produs(String ean, String nume, String codIntern, Integer unitate, Integer stoc) {
         this.ean = ean;
         this.nume = nume;
@@ -27,6 +31,8 @@ public class Produs implements Comparable<Produs> {
 
 
     ///geteri si seteri
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
     public String getEan(){return ean;}
     public void setEan(String ean){this.ean = ean;}
 

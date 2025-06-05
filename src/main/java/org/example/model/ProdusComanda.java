@@ -3,6 +3,9 @@ package org.example.model;
 
 public class ProdusComanda extends Produs{
     /// variabile
+    private Integer id;
+    private Integer produsId;
+    private Integer comandaId;
     private Integer cantitateComandata;
     private Integer cantitateScanata;
     /// //////final variabile
@@ -10,6 +13,10 @@ public class ProdusComanda extends Produs{
 
 
     /// constructor
+    public ProdusComanda() {
+        super();
+    }
+
     public ProdusComanda(String ean, String nume, String codIntern, Integer unitate,Integer stoc, Integer cantitateComandata){
         super(ean,nume,codIntern,unitate,stoc);
         this.cantitateComandata = cantitateComandata;
@@ -20,6 +27,15 @@ public class ProdusComanda extends Produs{
 
 
     /// /// geter si seter
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
+
+    public Integer getProdusId() {return produsId;}
+    public void setProdusId(Integer produsId) {this.produsId = produsId;}
+
+    public Integer getComandaId() {return comandaId;}
+    public void setComandaId(Integer comandaId) {this.comandaId = comandaId;}
+
     public int getCantitateComandata() { return cantitateComandata; }
     public void setCantitateComandata(int cantitateComandata) {
         this.cantitateComandata = cantitateComandata;

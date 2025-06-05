@@ -1,12 +1,23 @@
 package org.example.model;
 
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Comanda {
+    private Integer id;
+    private LocalDateTime dataComanda;
+    private String status;
+    private BigDecimal valoareTotala;
+    private String observatii;
     private List<ProdusComanda> produse;
+
+    public Comanda(){
+        this.produse = new ArrayList<>();
+    }
 
     public Comanda(List<ProdusComanda> produse){
         this.produse = produse;
@@ -54,6 +65,21 @@ public class Comanda {
         ProdusComanda produs = produse.get(index);
         produs.setCantitateScanata(cantitate);
     }
+
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
+
+    public LocalDateTime getDataComanda() {return dataComanda;}
+    public void setDataComanda(LocalDateTime dataComanda) {this.dataComanda = dataComanda;}
+
+    public String getStatus() {return status;}
+    public void setStatus(String status) {this.status = status;}
+
+    public BigDecimal getValoareTotala() {return valoareTotala;}
+    public void setValoareTotala(BigDecimal valoareTotala) {this.valoareTotala = valoareTotala;}
+
+    public String getObservatii() {return observatii;}
+    public void setObservatii(String observatii) {this.observatii = observatii;}
 
 
     public List<ProdusComanda> getProduse(){
