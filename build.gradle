@@ -16,7 +16,8 @@ tasks.named('run') {
 }
 java {
 
-    toolchain { languageVersion = JavaLanguageVersion.of(24) }
+    // Use JDK 21 which is available in the build environment
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
 }
 
 application {
@@ -25,7 +26,8 @@ application {
 }
 
 javafx {
-    version = '24'
+    // Version 21 is compatible with the available JDK 21 toolchain
+    version = '21'
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
