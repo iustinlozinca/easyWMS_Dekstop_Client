@@ -1,0 +1,44 @@
+plugins {
+    id 'java'                                      // deja prezent
+    id 'application'                               // pentru task-ul run/dist
+    id 'org.openjfx.javafxplugin' version '0.1.0'  // modul-path JavaFX
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('run') {
+    jvmArgs '--enable-native-access=javafx.graphics'
+}
+java {
+
+    toolchain { languageVersion = JavaLanguageVersion.of(24) }
+}
+
+application {
+
+    mainClass = 'org.example.Main'
+}
+
+javafx {
+    version = '24'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+    // --------- producție ----------
+    implementation 'org.apache.poi:poi:5.4.1'
+    implementation 'org.apache.poi:poi-ooxml:5.4.1'
+
+    // --------- test ----------
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
