@@ -16,7 +16,11 @@ tasks.named('run') {
 }
 java {
 
-    toolchain { languageVersion = JavaLanguageVersion.of(24) }
+    // Use the JDK available in the container. The original setup required
+    // Java 24 which is not installed here and causes Gradle to fail when
+    // resolving the toolchain. Java 21 is available, so we configure the
+    // toolchain accordingly.
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
 }
 
 application {
@@ -24,8 +28,11 @@ application {
     mainClass = 'org.example.Main'
 }
 
+// Use JavaFX libraries matching the JDK in this environment. JavaFX 24
+// requires a newer JDK (major version 66) which is not available. Using
+// JavaFX 21 ensures compatibility with JDK 21.
 javafx {
-    version = '24'
+    version = '21'
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
