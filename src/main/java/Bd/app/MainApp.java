@@ -36,13 +36,13 @@ public class MainApp {
         UserComandaDao.getInstance().create(new UserComanda(user.getId(), comanda.getId()));
         UserComandaDao.getInstance().create(new UserComanda(user.getId(), comanda.getId()));
 
-        ProdusComanda pc1 = new ProdusComanda();
+        ProdusComanda pc1 = new ProdusComanda("835215213", "test", "ceva codIntern", 2,30, 20);
         pc1.setProdusId(produs.getId());
         pc1.setComandaId(comanda.getId());
         pc1.setCantitateComandata(5);
         ProdusComandaDao.getInstance().create(pc1);
 
-        ProdusComanda pc2 = new ProdusComanda();
+        ProdusComanda pc2 = new ProdusComanda("8315213", "t3est", "ceva c24odIntern", 2,330, 20);
         pc2.setProdusId(produs.getId());
         pc2.setComandaId(comanda.getId());
         pc2.setCantitateComandata(3);
