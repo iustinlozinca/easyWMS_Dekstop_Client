@@ -9,5 +9,7 @@ public class Main{
 
     public static void main(String[] args) {
         GuiFx.launchApp(args);
+        ///
+        /// comentariu de test ca sa pot sa dau commit
     }
 }
