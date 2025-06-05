@@ -75,7 +75,7 @@ public class GuiFx extends Application {
 
     private void handleFileDropped(File file) {
         /// metoda separata in care primesc fisierul dupa drop
-        System.out.println("Fișier încărcat: " + file.getAbsolutePath());
+        System.out.println("Fisier incarcat: " + file.getAbsolutePath());
         // aici  procesarea fisier
     }
 

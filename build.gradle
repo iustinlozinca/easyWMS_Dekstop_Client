@@ -30,12 +30,12 @@ javafx {
 }
 
 dependencies {
-    // --------- producție ----------
+
     implementation 'org.apache.poi:poi:5.4.1'
     implementation 'org.apache.poi:poi-ooxml:5.4.1'
-    implementation 'mysql:mysql-connector-j:8.2.0'
+    implementation 'mysql:mysql-connector-java:8.0.33'
 
-    // --------- test ----------
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
